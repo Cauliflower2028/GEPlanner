@@ -107,6 +107,7 @@ function CourseFilterBar({ SetTitleFilter, SetSubjectFilter, SetUnitFilter, Cour
     CourseUnits.forEach((unit) => {
         units.push(<option key={unit} value={unit}>{unit}</option>);
     })
+    units.sort();
     return (
         <div className="CourseFilterBar">
             <label>Search: </label><input className="Filter" type="text" onChange={(e) => SetTitleFilter(e.target.value)}/>
@@ -121,7 +122,7 @@ function Course({ SetCourse, CloseModal, CourseTitle, CourseDescription, CourseU
         <div className="Course">
             <p id="courseTitle">🎓 {CourseTitle}</p>
             <p id="courseDescription">{CourseDescription}</p>
-            <p id="courseUnits">🕒 {CourseUnits}</p>
+            <p id="courseUnits">🕒 {CourseUnits} Credit Hours</p>
             <button onClick={() => {
                 SetCourse(CourseTitle)
                 CloseModal()
